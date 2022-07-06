@@ -93,6 +93,21 @@ function generatePassword(){
   var hasLowerChar = confirm ("Include LowerCase Characters");
   var hasNumbers = confirm ("Include Numbers");
   var hasSpecialChar = confirm ("Include Special Characters");
+
+  var passwordOptions = {
+    passwordLength: passworhLength, 
+    hasSpecialChar: hasSpecialChar,
+    hasUpperChar: hasUpperChar,
+    hasLowerChar: hasLowerChar,
+    hasNumbers: hasNumbers,
+  }
+
+  var result = [];
+  var requiredCharacters = [];
+  //If we include option for password, must ensure option is in the password//
+if(hasSpecialChar)
+
+
 }
 
 // Get references to the #generate element
@@ -102,6 +117,7 @@ var generateBtn = document.querySelector("#generate");
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
+  
 
   passwordText.value = password;
 
