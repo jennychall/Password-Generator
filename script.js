@@ -95,7 +95,7 @@ function generatePassword(){
   var hasSpecialChar = confirm ("Include Special Characters");
 
   var passwordOptions = {
-    passwordLength: passworhLength, 
+    passwordLength: passwordLength, 
     hasSpecialChar: hasSpecialChar,
     hasUpperChar: hasUpperChar,
     hasLowerChar: hasLowerChar,
@@ -104,8 +104,30 @@ function generatePassword(){
 
   var result = [];
   var requiredCharacters = [];
+
+  function selectRandChar(array){
+      return array[Math.floor(Math.random() * array.length)]; 
+  }
   //If we include option for password, must ensure option is in the password//
-if(hasSpecialChar)
+if(passwordOptions.hasSpecialChar){
+    result.push(selectRandChar(specialCharacters));
+    requiredCharacters.concat(specialCharacters);
+}
+
+if(passwordOptions.hasUpperChar){
+  result.push(selectRandChar(upperChar));
+  requiredCharacters.concat(upperChar);
+}
+
+if(password.passwordOptions.hasLowerChar){
+  result.push(selectRandChar(lowerChar));
+  requiredCharacters.concat(lowerChar);
+}
+
+if(passwordOptions.hasNumbers){
+  result.push(selectRandChar(numbers));
+  requiredCharacters.concat(numbers);
+}
 
 
 }
