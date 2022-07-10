@@ -25,6 +25,7 @@ var specialCharacters = [
   ".",
 
 ];
+
 var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
 //Array, lowercase characters// 
@@ -129,8 +130,9 @@ if(passwordOptions.hasNumbers){
   result.push(selectRandChar(numbers));
   requiredCharacters = requiredCharacters.concat(numbers);
 }
-for(var i = 0; i <( passwordOptions.passwordLength - result.length); i++){
-    var randomChar = selectRandChar(requiredCharacters)
+var currentPasswordLength = result.length; 
+for(var i = 0; i < passwordOptions.passwordLength - result.length; i++) {
+    var randomChar = selectRandChar(requiredCharacters);
   result.push(randomChar);
 } 
 console.log(result);
