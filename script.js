@@ -104,6 +104,7 @@ function generatePassword(){
 
   var result = [];
   var requiredCharacters = [];
+  var charArray = [];
 
   function selectRandChar(array){
       return array[Math.floor(Math.random() * array.length)]; 
@@ -111,24 +112,28 @@ function generatePassword(){
   //If we include option for password, must ensure option is in the password//
 if(passwordOptions.hasSpecialChar){
     result.push(selectRandChar(specialCharacters));
-    requiredCharacters.concat(specialCharacters);
+    requiredCharacters = requiredCharacters.concat(specialCharacters);
 }
 
 if(passwordOptions.hasUpperChar){
-  result.push(selectRandChar(upperChar));
-  requiredCharacters.concat(upperChar);
+  result.push(selectRandChar(upperCase));
+  requiredCharacters = requiredCharacters.concat(upperCase);
 }
 
-if(password.passwordOptions.hasLowerChar){
+if(passwordOptions.hasLowerChar){
   result.push(selectRandChar(lowerChar));
-  requiredCharacters.concat(lowerChar);
+  requiredCharacters = requiredCharacters.concat(lowerChar);
 }
 
 if(passwordOptions.hasNumbers){
   result.push(selectRandChar(numbers));
-  requiredCharacters.concat(numbers);
+  requiredCharacters = requiredCharacters.concat(numbers);
 }
-
+for(var i = 0; i <( passwordOptions.passwordLength - result.length); i++){
+    var randomChar = selectRandChar(requiredCharacters)
+  result.push(randomChar);
+} 
+console.log(result);
 
 }
 
