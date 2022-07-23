@@ -1,161 +1,57 @@
 // Assignment code here
-var specialCharacters = [
-  "@",
-  "%",
-  "+",
-  "\\",
-  "/",
-  "'",
-  "!",
-  "#",
-  "$",
-  "^",
-  "?",
-  ":",
-  ",",
-  ")",
-  "(",
-  "}",
-  "{",
-  "]",
-  "[",
-  "~",
-  "-",
-  "_",
-  ".",
+//Array for password characters 
+function generatePassword() {
+  var numericCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+  var uppercaseCharacters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+  var lowercaseCharacters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+  var specialCharacters = ['@', '%', '+', '\\', '/', "'", '!', '#', '$', '^', '?', ':', ',', ')', '(', '}', '{', ']', '[', '~', '-', '_', '.'];
+  var possibleCharacters = [];
+}; 
 
-];
-
-var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-
-//Array, lowercase characters// 
-var lowerCase = [
-  "a",
-  "b",
-  "c",
-  "d",
-  "e",
-  "f",
-  "g",
-  "h",
-  "i",
-  "j",
-  "k",
-  "l",
-  "m",
-  "n",
-  "o",
-  "p",
-  "q",
-  "r",
-  "s",
-  "t",
-  "u",
-  "v",
-  "w",
-  "x",
-  "y",
-  "z",
-]; 
-
-//Array for uppercase letters//
-var upperCase = [
-  "A",
-  "B",
-  "C",
-  "D",
-  "E",
-  "F",
-  "G",
-  "H",
-  "I",
-  "J",
-  "K",
-  "L",
-  "M",
-  "N",
-  "O", 
-  "P",
-  "Q",
-  "R",
-  "S",
-  "T",
-  "U",
-  "V",
-  "X",
-  "Y",
-  "Z",
-]; 
-
-function generatePassword(){
-  var passwordLength = prompt ("What length of password would you like?"); 
-  var hasSpecialChar = confirm ("Include Special Characters");
-  var hasUpperChar = confirm ("Include UpperCase Characters");
-  var hasLowerChar = confirm ("Include LowerCase Characters");
-  var hasNumbers = confirm ("Include Numbers");
-  var hasSpecialChar = confirm ("Include Special Characters");
-
-  var passwordOptions = {
-    passwordLength: passwordLength, 
-    hasSpecialChar: hasSpecialChar,
-    hasUpperChar: hasUpperChar,
-    hasLowerChar: hasLowerChar,
-    hasNumbers: hasNumbers,
+//else statement for get input, amount of characters
+numberOfCharacters = prompt("How many characters do you want in your password? Choose between 8-128 characters.");
+  if (numberOfCharacters < 8 || numberOfCharacters > 128) {
+    return "Please choose a valid number of characters.";
+  } else if (isNaN(numberOfCharacters)) {
+    numberOfCharacters = prompt("Please enter a valid number.");
   }
+  else {
+    alert("Your password will be " + numberOfCharacters + " characters long.");
+    
+  };
 
-  var result = [];
-  var requiredCharacters = [];
-  var charArray = [];
-
-  function selectRandChar(array){
-      return array[Math.floor(Math.random() * array.length)]; 
+//character prompts 
+  hasLowercase = confirm("Do you want to use lowercase characters?");
+  if (hasLowercase) {
+    var turnToLowercase = alert("Your password will contain lowercase characters.");
   }
-  //If we include option for password, must ensure option is in the password//
-if(passwordOptions.hasSpecialChar){
-    result.push(selectRandChar(specialCharacters));
-    requiredCharacters = requiredCharacters.concat(specialCharacters);
-}
+  else {
+    alert("Your password will not contain lowercase characters.");
+  }; 
 
-if(passwordOptions.hasUpperChar){
-  result.push(selectRandChar(upperCase));
-  requiredCharacters = requiredCharacters.concat(upperCase);
-}
+  hasSpecial = confirm("Do you want to use special characters?");
+  if (hasSpecial) {
+    alert("Your password will contain special characters.");
+  }
+  else {
+    alert("Your password will not contain special characters.");
+  };
 
-if(passwordOptions.hasLowerChar){
-  result.push(selectRandChar(lowerChar));
-  requiredCharacters = requiredCharacters.concat(lowerChar);
-}
+  hasNumbers = confirm("Do you want to use numbers?");
+  if (hasNumbers) {
+    alert("Your password will contain numbers.");
+  }
+  else {
+    alert("Your password will not contain numbers.");
+  };
 
-if(passwordOptions.hasNumbers){
-  result.push(selectRandChar(numbers));
-  requiredCharacters = requiredCharacters.concat(numbers);
-}
-var currentPasswordLength = result.length; 
-for(var i = 0; i < passwordOptions.passwordLength - result.length; i++) {
-    var randomChar = selectRandChar(requiredCharacters);
-  result.push(randomChar);
-} 
-console.log(result);
-
-}
-
-// Get references to the #generate element
-var generateBtn = document.querySelector("#generate");
-
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-  
-
-  passwordText.value = password;
-
-}
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-
-
+  hasUppercase = confirm("Do you want to use uppercase characters?");
+  if (hasUppercase) {
+    alert("Your password will contain uppercase characters.");
+  }
+  else {
+    alert("Your password will not contain uppercase characters.");
+  }; 
 
 
 
