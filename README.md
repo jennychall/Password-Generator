@@ -8,7 +8,6 @@ HTML
 CSS
 JavaScript 
 
-<img src="app.jpeg" alt="screenshot of app">
 
 
 
