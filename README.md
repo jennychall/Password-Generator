@@ -8,7 +8,9 @@ HTML
 CSS
 JavaScript 
 
-<img src="app.jpg">
+<img width="854" alt="app.jpeg" src="https://user-images.githubusercontent.com/77700824/
+
+<img src="app.jpeg" alt="screenshot of app">
 
 
 
